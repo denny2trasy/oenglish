@@ -1,0 +1,2 @@
+module Agent::StudentsHelper
+end

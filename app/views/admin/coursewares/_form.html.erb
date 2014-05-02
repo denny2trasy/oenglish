@@ -1,0 +1,27 @@
+<%= form_for @courseware, url: url,  html: {class: "form-horizontal", :multipart => true} do |f| %>
+	<% %w{position name}.each do |item| %>
+		<div class="form-group">
+			<%= f.label t("c_#{item}"), :for => "courseware_#{item}", :class => "col-sm-2 control-label"%>
+			<div class="col-sm-10">
+				<%= f.text_field item.to_sym, :class => "form-control", :placeholder => t("c_#{item}") %>
+		    </div>
+		</div>
+	<% end %>
+	<div class="form-group">
+		<%= f.label t(:desc), :for => "courseware_desc", :class => "col-sm-2 control-label"%>
+		<div class="col-sm-10">
+			<%= f.text_area :desc, :class => "form-control" %>
+	    </div>
+	</div>
+	<div class="form-group">
+		<%= f.label t(:ppt), :for => "courseware_ppt", :class => "col-sm-2 control-label"%>
+		<div class="col-sm-10">
+			<%= f.file_field :ppt, :class => "form-control" %>
+	    </div>
+	</div>
+	<div class="form-group">
+	    <div class="col-sm-offset-2 col-sm-10">
+			<%= f.button t(:submit), :class => "btn btn-default"%>
+	    </div>
+	  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<%= render :partial => "breadcrumb" %>
+
+<%= render :partial => "search" %>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+		<tr>
+			<td><%= t(:c_position)%></td>
+			<td><%= t(:c_name) %></td>
+			<td><%= t(:desc) %></td>
+			<td><%= t(:ppt)%></td>
+			<td><%= t(:actions)%></td>
+		</tr>
+		<% @coursewares.each do |courseware| %>
+			<tr>
+				<td><%= courseware.position %></td>
+				<td><%= courseware.name %></td>
+				<td><%= courseware.desc %></td>
+				<td><%= link_to t(:download), courseware.ppt.url %></td>
+				<td>
+					<%= link_to t(:edit), edit_admin_courseware_path(courseware), :class => "btn btn-default" %>
+					<%= link_to t(:delete), admin_courseware_path(courseware),:method => :delete, :class => "btn btn-danger", :confirm => "Are you sure?"%>
+					
+				</td>
+			</tr>	
+		<% end %>	
+  </table>
+  <%= paginate @coursewares%>
+</div>

@@ -1,0 +1,28 @@
+<%= render :partial => "breadcrumb" %>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+		<tr>
+			<td><%= t(:c_position)%></td>
+			<td><%= t(:c_name) %></td>
+			<td><%= t(:desc) %></td>
+			<td><%= t(:lessons)%></td>
+			<td><%= t(:actions)%></td>
+		</tr>
+		<% @courses.each do |course| %>
+			<tr>
+				<td><%= course.position %></td>
+				<td><%= course.name %></td>
+				<td><%= course.desc %></td>
+				<td><%= link_to course.lessons.count, admin_lessons_path(:q => {:course_id_eq => course.id}) %></td>
+				<td>
+					<%= link_to t(:edit), edit_admin_course_path(course), :class => "btn btn-default" %>
+					<%= link_to t(:new_lesson), new_admin_lesson_path(:lesson => {:course_id => course.id}), :class => "btn btn-info"%>
+					<%= link_to t(:delete), admin_course_path(course),:method => :delete, :class => "btn btn-danger", :confirm => "Are you sure?"%>
+					
+				</td>
+			</tr>	
+		<% end %>	
+  </table>
+  <%= paginate @courses%>
+</div>

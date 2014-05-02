@@ -1,0 +1,8 @@
+<div class="well">
+	<%= search_form_for @q, url: admin_users_path, :role => "form", :class => "form-inline" do |f| %>
+	  <%= f.text_field :name_cont, {:placeholder => t(:name),:class => "form-control"} %>
+	  <%= f.text_field :email_cont,{:placeholder => t(:email),:class => "form-control"} %>
+	  <%= f.select :u_type_eq, ([''] + user_type).flatten, {}, {:class => "form-control"} %>
+	  <%= f.submit :search, {:class => "btn btn-default"} %>
+	<% end %>
+</div>

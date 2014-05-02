@@ -1,0 +1,10 @@
+<div class="well">
+	<%= search_form_for @q, url: admin_schedules_path, :role => "form", :class => "form-inline" do |f| %>
+	  <%= f.text_field :title_cont, {:placeholder => t(:title),:class => "form-control"} %>&nbsp;&nbsp;&nbsp;&nbsp;
+	  <%= f.label t(:teacher_id), :class => "control-label"%>
+	  <%= f.select :teacher_id_eq, ([[nil,nil]] + teachers_list), {}, {:class => "form-control"} %>&nbsp;&nbsp;&nbsp;&nbsp;
+	  <%= f.label t(:grade_id), :class => "control-label"%>
+	  <%= f.select :grade_id_eq, ([[nil,nil]] + grades_list), {}, {:class => "form-control"} %>
+	  <%= f.submit :search, {:class => "btn btn-default"} %>
+	<% end %>
+</div>

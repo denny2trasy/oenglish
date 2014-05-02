@@ -1,0 +1,147 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+zh-CN:
+  oenglish: "Oenglish" 
+  logout: "退出"
+  sign_up: "注册"
+  sign_in: "登陆" 
+  
+  actions: "操作"
+  new: "创建"
+  edit: "修改"
+  delete: "删除" 
+  search: "查询" 
+  show: "详情"
+  submit: "提交"
+  
+  views:
+    pagination:
+      first: "&laquo; 首页"
+      last: "尾页 &raquo;"
+      previous: "&lsaquo; 前一页"
+      next: "后一页 &rsaquo;"
+      truncate: "&hellip;"  
+    
+  name: "姓名"
+  login: "登陆名"
+  email: "电子邮箱"
+  qq: "QQ"
+  weixin: "微信"
+  mobile: "手机"
+  parent_mobile: "父母手机" 
+  agent: "代理商"
+  password: "密码"
+  password_confirmation: "确认密码" 
+  remember_me: "记住"  
+  
+  # admin
+  admin_users: "用户管理"
+  admin_agents: "代理商管理" 
+  admin_courses: "课程包管理"
+  admin_lessons: "课程内容管理" 
+  admin_grades: "班级管理"
+  admin_schedules: "课表管理" 
+  admin_coursewares: "课件管理" 
+  
+  # admin/users
+  u_type: "用户类别"
+  new_teacher: "新建教师"
+  new_admin: "新建管理员"
+  set_grade: "设置班级"
+  grades: "班级数"
+  grade: "班级"
+  deadline: "截止日期"
+  user_info: "用户详情"
+  
+  # admin/agents
+  new_agent: "新建代理商"
+  contract_no: "合同号"
+  user_id: "对应的帐号"
+  commission_x: "佣金 x"
+  commission_ya: "佣金 ya" 
+  commission_yb: "佣金 yb" 
+  commission_z: "佣金 z"
+  top_id: "上级代理"
+  logo: "是否显示Logo"
+  a_type: "类型"
+  students: "学生数"
+  agent_info: "代理商详情"  
+
+  # admin/courses
+  new_course: "创建新课程包"
+  new_lesson: "创建新课程"
+  c_name: "名称"
+  c_position: "序号"
+  desc: "备注"
+  lessons: "课程内容"
+  
+  # admin/lessons
+  c_url: "URL"
+  script: "脚本"
+  
+  # admin/grades
+  new_grade: "创建新班级"
+  teacher_id: "老师"
+  num_of_students: "预设学生数" 
+  start_date: "开课日期" 
+  start_hour: "开课时间（小时）" 
+  start_minute: "开课时间（分钟）" 
+  duration: "课时长度（分钟）" 
+  repeat_wday: "周几上课" 
+  status: "状态"
+  show_schedule: "查看课表"    
+  
+  # admin/schedules
+  new_schedule: "创建新课表"
+  title: "课程名称"
+  start_at: "开始时间"
+  end_at: "结束时间"
+  webex_no: "Webex序号"
+  webex_pwd: "Webex密码"
+  grade_id: "班级"
+  to_webex: "创建Webex会议"
+  
+  # admin/coursewares
+  new_courseware: "创建课件" 
+  download: "下载"
+  
+  # agent
+  agent_students: "学生管理"
+  agent_info: "代理商信息"
+  
+  # teacher
+  teacher_schedules: "课程表"
+  teacher_all: "全部课程"
+  start_meeting: "开始课程"
+  
+  # student
+  student_courses: "预习课程"
+  student_schedules: "在线课程"
+  student_coursewares: "学习课件"
+  
+  # student/courses
+  study: "学习"
+  
+  # student/schedules
+  student_all: "全部课表"
+  join_meeting: "进入课堂"
+   

@@ -1,0 +1,33 @@
+<%= render :partial => "breadcrumb" %>
+
+<%= render :partial => "search" %>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+		<tr>
+			<td><%= t(:name)%></td>
+			<td><%= t(:email)%></td>
+			<td><%= t(:contract_no) %></td>
+			<td><%= t(:top_id) %></td>
+			<td><%= t(:a_type) %></td>
+			<td><%= t(:students) %></td>
+			<td><%= t(:actions)%></td>
+		</tr>
+		<% @agents.each do |agent| %>
+			<tr>
+				<td><%= agent.name %></td>
+				<td><%= agent.user.email%></td>
+				<td><%= agent.contract_no %></td>
+				<td><%= agent.top_agent.try(:name) %></td>
+				<td><%= agent.a_type %></td>
+				<td><%= link_to agent.students.count, admin_agent_path(agent) %></td>
+				<td>
+					<%= link_to t(:show), admin_agent_path(agent), :class => "btn btn-default" %>
+					<%= link_to t(:edit), edit_admin_agent_path(agent), :class => "btn btn-default" %>
+					<%= link_to t(:delete), admin_agent_path(agent),:method => :delete, :class => "btn btn-danger", :confirm => "Are you sure?"%>
+				</td>
+			</tr>	
+		<% end %>	
+  </table>
+  <%= paginate @agents%>
+</div>

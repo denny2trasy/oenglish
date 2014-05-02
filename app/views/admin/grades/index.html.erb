@@ -1,0 +1,35 @@
+<%= render :partial => "breadcrumb" %>
+
+<%= render :partial => "search" %>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+		<tr>
+			<td><%= t(:teacher_id) %></td>
+			<td><%= t(:c_name)%></td>			
+			<td><%= t(:num_of_students) %></td>
+			<td><%= t(:start_date) %></td>
+			<td><%= t(:start_hour) %></td>
+			<td><%= t(:start_minute) %></td>
+			<td><%= t(:duration) %></td>
+			<td><%= t(:repeat_wday) %></td>
+			<td><%= t(:status) %></td>
+			<td><%= t(:students)%></td>
+			<td><%= t(:actions)%></td>
+		</tr>
+		<% @grades.each do |grade| %>
+			<tr>
+				<td><%= grade.teacher.try(:name) %></td>
+				<% %w{name num_of_students start_date start_hour start_minute duration repeat_wday status}.each do |item| %>
+					<td><%= grade.send(item)%></td>
+				<% end %>
+				<td><%= grade.users.count %></td>
+				<td>
+					<%= link_to t(:edit), edit_admin_grade_path(grade), :class => "btn btn-default" %>
+					<%= link_to t(:show_schedule), admin_schedules_path(:q => {:grade_id_eq => grade.id}), :class => "btn btn-info"%>
+				</td>
+			</tr>	
+		<% end %>	
+  </table>
+  <%= paginate @grades%>
+</div>

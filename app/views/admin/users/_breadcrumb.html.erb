@@ -1,0 +1,6 @@
+<ol class="breadcrumb">
+  <li><%= link_to t(:admin_users), admin_users_path %></li>
+  <li><%= link_to t(:new_teacher), new_admin_user_path(:user => {:u_type => "teacher"}), :class => "btn btn-info" %></li>
+  <li><%= link_to t(:new_admin), new_admin_user_path(:user => {:u_type => "admin"}), :class => "btn btn-primary" %></li>
+  <li><%= link_to t(:new_agent), new_admin_user_path(:user => {:u_type => "agent"}), :class => "btn btn-primary" %></li>
+</ol>

@@ -1,0 +1,17 @@
+
+<div class="panel panel-default">
+  <div class="panel-heading"><%= t(:user_info)%></div>
+  <div class="panel-body">
+    <p><%= t(:name )%>: <%= @user.name %></p>
+	<p><%= t(:u_type )%>: <%= @user.u_type %></p>
+	<p><%= t(:email) %>: <%= @user.email %></p>
+  </div>
+
+  <!-- Table -->
+	<% if @user.is_student? %>
+		<%= render :partial => "grades_users" %>
+	<% end %>
+	<% if @user.is_teacher? %>
+		<%= render :partial => "grades" %>
+	<% end %>
+</div>

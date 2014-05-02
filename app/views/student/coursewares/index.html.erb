@@ -1,0 +1,19 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+		<tr>
+			<td><%= t(:c_position)%></td>
+			<td><%= t(:c_name) %></td>
+			<td><%= t(:desc) %></td>
+			<td><%= t(:actions)%></td>
+		</tr>
+		<% @coursewares.each do |courseware| %>
+			<tr>
+				<td><%= courseware.position %></td>
+				<td><%= courseware.name %></td>
+				<td><%= courseware.desc %></td>
+				<td><%= link_to t(:download), courseware.ppt.url %></td>
+			</tr>	
+		<% end %>	
+  </table>
+  <%= paginate @coursewares%>
+</div>

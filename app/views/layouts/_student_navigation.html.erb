@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+	<%= link_to t(:oenglish), root_path, :class => 'navbar-brand' %>
+  </div>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+		<li class="<%= li_active 'Student::CoursesController', controller %>"><%= link_to t(:student_courses), student_courses_path %></li>
+		<li class="<%= li_active 'Student::SchedulesController', controller %>"><%= link_to t(:student_schedules), student_schedules_path %></li>
+		<li class="<%= li_active 'Student::CoursewaresController', controller %>"><%= link_to t(:student_coursewares), student_coursewares_path %></li>
+    </ul>
+	<ul class="nav navbar-nav navbar-right">
+		<li><%= link_to current_user.email, "#" %></li>
+		<li><%= link_to t(:logout), destroy_user_session_path, :method=>'delete' %></li>
+	</ul>	
+  </div><!--/.nav-collapse -->
+</div>

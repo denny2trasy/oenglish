@@ -1,0 +1,30 @@
+<% grades_users = @user.grades_users %>
+<% unless grades_users.blank? %>
+	<div class="table-responsive">
+	  <table class="table table-striped">
+			<tr>
+				<td><%= t(:teacher_id) %></td>
+				<td><%= t(:c_name)%></td>			
+				<td><%= t(:num_of_students) %></td>
+				<td><%= t(:start_date) %></td>
+				<td><%= t(:start_hour) %></td>
+				<td><%= t(:start_minute) %></td>
+				<td><%= t(:duration) %></td>
+				<td><%= t(:repeat_wday) %></td>
+				<td><%= t(:deadline) %></td>
+				<td><%= t(:students)%></td>
+			</tr>
+			<% grades_users.each do |g_user| %>
+				<% grade = g_user.grade %>
+				<tr>
+					<td><%= grade.teacher.try(:name) %></td>
+					<% %w{name num_of_students start_date start_hour start_minute duration repeat_wday}.each do |item| %>
+						<td><%= grade.send(item)%></td>
+					<% end %>
+					<td><%= g_user.deadline %></td>
+					<td><%= grade.users.count %></td>
+				</tr>	
+			<% end %>	
+	  </table>
+	</div>
+<% end %>

@@ -1,0 +1,29 @@
+<% unless current_agent.blank? %>
+<div class="panel panel-default">
+  <div class="panel-heading"><%= t(:agent_info)%></div>
+  <div class="panel-body">
+    <p><%= t(:name )%>: <%= current_agent.name %></p>
+	<p><%= t(:a_type )%>: <%= current_agent.a_type %></p>
+	<p><%= t(:students) %>: <%= current_agent.students.count%></p>
+  </div>
+
+	<div class="table-responsive">
+	  <table class="table table-striped">
+			<tr>
+				<td><%= t(:name)%></td>
+				<td><%= t(:login) %></td>
+				<td><%= t(:email) %></td>
+			</tr>
+			<% @students.each do |student| %>
+				<tr>
+					<% %w{name login email}.each do |item| %>
+						<td><%= student.send(item)%></td>
+					<% end %>
+				</tr>	
+			<% end %>	
+	  </table>
+	  <%= paginate @students %>
+	</div>
+
+</div>
+<% end %>

@@ -1,0 +1,39 @@
+
+<div class="panel-group" id="accordion">
+	<% @courses.each do |course| %>
+		<div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#course_<%= course.id %>">
+		          <%= course.name %>
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="course_<%= course.id %>" class="panel-collapse collapse in">
+		      <div class="panel-body">
+					<div class="table-responsive">
+					  <table class="table table-bordered">
+							<tr>
+								<td><%= t(:c_name) %></td>
+								<td><%= t(:desc) %></td>
+								<td><%= t(:actions)%></td>
+							</tr>
+							<% course.lessons.each do |lesson| %>
+								<tr>
+									<td><%= lesson.name %></td>
+									<td><%= lesson.desc %></td>
+									<td>
+										<%= link_to t(:study), student_course_path(lesson), :class => "btn btn-info"%>
+									</td>
+								</tr>	
+							<% end %>	
+					  </table>
+					</div>
+		      </div>
+		    </div>
+	  </div>	
+	<% end %>
+	<%= paginate @courses%>
+</div>
+
+

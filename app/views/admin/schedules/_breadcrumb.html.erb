@@ -1,0 +1,5 @@
+<ol class="breadcrumb">
+	<li><%= link_to t(:admin_grades), admin_grades_path %></li>
+  	<li><%= link_to t(:admin_schedules), admin_schedules_path %></li>
+  	<li><%= link_to t(:new_schedule), new_admin_schedule_path(:schedule => {:webex_pwd => Schedule.generate_pwd}), :class => "btn btn-info" %></li>
+</ol>

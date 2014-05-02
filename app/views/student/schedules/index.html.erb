@@ -1,0 +1,42 @@
+<div class="well">
+	<ul class="nav nav-pills">
+	  	<li class="<%= @num.blank? ? 'active' : '' %>">
+	  		<%= link_to t(:student_all), student_schedules_path()%>
+	  	</li>
+		<% d = Time.now.to_date %>
+		<% (0..6).each do |num| %>
+			<% active = (@num.to_i == num ? "active" : "")%>
+			<li class="<%=active%>">
+				<% date = d + num.days %>
+				<%= link_to date.strftime("%Y-%m-%d"), student_schedules_path(:num => num)%>
+			</li>
+		<% end %>
+	</ul>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+		<tr>
+			<td><%= t(:title) %></td>		
+			<td><%= t(:start_at) %></td>
+			<td><%= t(:end_at)%></td>
+			<td><%= t(:actions)%></td>
+		</tr>
+		<% @schedules.each do |schedule| %>
+			<tr>				
+				<td><%= schedule.title %></td>
+				<td><%= schedule.start_at.try(:strftime, "%Y-%m-%d %H:%M") %></td>
+				<td><%= schedule.end_at.try(:strftime, "%Y-%m-%d %H:%M")  %></td>
+				<td>
+					<% t = Time.now %>
+					<% if schedule.start_at > t %>
+						<% l_class = "active" %> 
+						<% l_class = "disable" if schedule.start_at > t + 5.minutes %>										
+						<%= link_to t(:join_meeting), student_schedule_path(schedule), :class => l_class%>
+					<% end %>
+				</td>
+			</tr>	
+		<% end %>	
+  </table>
+  <%= paginate @schedules%>
+</div>

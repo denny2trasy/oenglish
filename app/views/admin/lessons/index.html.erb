@@ -1,0 +1,29 @@
+<%= render :partial => "breadcrumb" %>
+
+<%= render :partial => "search" %>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+		<tr>
+			<td><%= t(:c_name) %></td>
+			<td><%= t(:c_url)%></td>			
+			<td><%= t(:desc) %></td>
+			<td><%= t(:script)%></td>
+			<td><%= t(:actions)%></td>
+		</tr>
+		<% @lessons.each do |lesson| %>
+			<tr>				
+				<td><%= lesson.name %></td>
+				<td><%= lesson.url %></td>
+				<td><%= lesson.desc %></td>
+				<td><%= lesson.script %></td>
+				<td>
+					<%= link_to t(:edit), edit_admin_lesson_path(lesson), :class => "btn btn-default" %>
+					<%= link_to t(:delete), admin_lesson_path(lesson),:method => :delete, :class => "btn btn-danger", :confirm => "Are you sure?"%>
+					
+				</td>
+			</tr>	
+		<% end %>	
+  </table>
+  <%= paginate @lessons%>
+</div>

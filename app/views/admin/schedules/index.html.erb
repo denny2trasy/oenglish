@@ -1,0 +1,72 @@
+<%= render :partial => "breadcrumb" %>
+
+<%= render :partial => "search" %>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+		<tr>
+			<td><%= t(:title) %></td>
+			<td><%= t(:teacher_id)%></td>			
+			<td><%= t(:start_at) %></td>
+			<td><%= t(:end_at)%></td>
+			<td><%= t(:webex_no) %></td>
+			<td><%= t(:webex_pwd)%></td>
+			<td><%= t(:actions)%></td>
+		</tr>
+		<% @schedules.each do |schedule| %>
+			<tr>				
+				<td><%= schedule.title %></td>
+				<td><%= schedule.teacher.try(:name) %></td>
+				<td><%= schedule.start_at.try(:strftime, "%Y-%m-%d %H:%M") %></td>
+				<td><%= schedule.end_at.try(:strftime, "%Y-%m-%d %H:%M")  %></td>
+				<td><%= schedule.webex_no %></td>
+				<td><%= schedule.webex_pwd %></td>
+				<td>										
+					<% if schedule.webex_no.blank? %>
+						<%= link_to t(:edit), edit_admin_schedule_path(schedule), :class => "btn btn-default" %>
+						<%= link_to t(:to_webex), meeting_admin_schedule_path(schedule), :class => "btn btn-default" %>
+						<%= link_to t(:delete), admin_schedule_path(schedule),:method => :delete, :class => "btn btn-danger", :confirm => "Are you sure?"%>
+					<% end %>
+				</td>
+			</tr>	
+		<% end %>	
+  </table>
+  <%= paginate @schedules%>
+</div>
+
+<script>
+	function webex_login(){
+		$.ajax({
+			data: {
+				AT: "LI",
+				PW: "<%= Webex::UrlApi::PWD %>",
+				WID: "<%= Webex::UrlApi::USER %>"
+			},
+			dataType: "script",
+			type: "GET",
+			url: "<%= Webex::UrlApi::BASEURL %>" + "p.php",
+			success: function(data,textStatus){
+				webex_set_meeting_type();
+			}
+		});
+	}
+	
+	function webex_set_meeting_type(){
+		$.ajax({
+			data: {
+				AT: "ST",
+				SP: "EC"
+			},
+			dataType: "script",
+			type: "GET",
+			url: "<%= Webex::UrlApi::BASEURL %>" + "o.php",
+			success: function(data, textStatus){
+				
+			}
+		})
+	}
+
+	$(function(){
+		webex_login();
+	})
+</script>

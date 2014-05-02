@@ -1,0 +1,18 @@
+<table class="table table-striped">
+	<tr>
+		<td><%= t(:name)%></td>
+		<td><%= t(:login) %></td>
+		<td><%= t(:email) %></td>
+		<td><%= t(:created_at)%></td>
+	</tr>
+	<% @agent.students.each do |student| %>
+		<tr>
+			<% %w{name login email}.each do |item| %>
+				<td><%= student.send(item)%></td>
+			<% end %>
+			<td>
+				<%= student.created_at.strftime("%Y-%m-%d %H:%M")%>
+			</td>
+		</tr>	
+	<% end %>
+</table>

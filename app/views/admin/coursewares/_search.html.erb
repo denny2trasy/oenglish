@@ -1,0 +1,6 @@
+<div class="well">
+	<%= search_form_for @q, url: admin_coursewares_path, :role => "form", :class => "form-inline" do |f| %>
+	  <%= f.text_field :name_cont, {:placeholder => t(:c_name),:class => "form-control"} %>
+	  <%= f.submit :search, {:class => "btn btn-default"} %>
+	<% end %>
+</div>

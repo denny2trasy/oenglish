@@ -1,0 +1,9 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	<%= @lesson.name %>	
+  </div>
+  <div class="panel-body">
+	<audio src="<%= @lesson.url %>" autoplay controls></audio>
+    <pre><%= @lesson.script %></pre>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="well">
+	<%= search_form_for @q, url: admin_agents_path, :role => "form", :class => "form-inline" do |f| %>
+	  <%= f.text_field :name_cont, {:placeholder => t(:name),:class => "form-control"} %>
+	  <%= f.text_field :contract_no_cont,{:placeholder => t(:contract_no),:class => "form-control"} %>
+	  <%= f.select :a_type_eq, ([''] + agent_type).flatten, {}, {:class => "form-control"} %>
+	  <%= f.submit :search, {:class => "btn btn-default"} %>
+	<% end %>
+</div>

@@ -1,0 +1,33 @@
+<%= render :partial => "breadcrumb" %>
+
+<%= render :partial => "search" %>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+		<tr>
+			<td><%= t(:name)%></td>
+			<td><%= t(:login) %></td>
+			<td><%= t(:email) %></td>
+			<td><%= t(:u_type) %></td>
+			<td><%= t(:grades) %></td>
+			<td><%= t(:actions)%></td>
+		</tr>
+		<% @users.each do |user| %>
+			<tr>
+				<% %w{name login email u_type}.each do |item| %>
+					<td><%= user.send(item)%></td>
+				<% end %>
+				<td><%= user.asigned_grades.try(:count) %></td>
+				<td>
+					<%= link_to t(:show), admin_user_path(user), :class => "btn btn-default" %>
+					<%= link_to t(:edit), edit_admin_user_path(user), :class => "btn btn-default" %>
+					<% if user.is_student? %>
+						<%= link_to t(:set_grade), set_grade_admin_user_path(user), :class => "btn btn-info"%>
+					<% end %>
+					<%= link_to t(:password), edit_admin_user_path(user, :flag => "password"), :class => "btn btn-default" %>
+				</td>
+			</tr>	
+		<% end %>	
+  </table>
+  <%= paginate @users%>
+</div>

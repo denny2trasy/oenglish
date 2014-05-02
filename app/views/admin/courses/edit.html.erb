@@ -1,0 +1,6 @@
+<%= render :partial => "breadcrumb"%>
+<div>
+	<h2><%= t(:edit)%></h2>
+</div>
+<%= render :partial => "form", :locals => {:url => admin_course_path(@course)}%>
+

@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+	<%= link_to t(:oenglish), root_path, :class => 'navbar-brand' %>
+  </div>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+		<li class="<%= li_active 'Admin::UsersController', controller %>"><%= link_to t(:admin_users), admin_users_path %></li>
+		<li class="<%= li_active 'Admin::AgentsController', controller %>"><%= link_to t(:admin_agents), admin_agents_path %></li>
+		<li class="<%= li_active 'Admin::GradesController', controller %>"><%= link_to t(:admin_grades), admin_grades_path %></li>
+		<li class="<%= li_active 'Admin::SchedulesController', controller %>"><%= link_to t(:admin_schedules), admin_schedules_path %></li>
+		<li class="<%= li_active 'Admin::CoursesController', controller %>"><%= link_to t(:admin_courses), admin_courses_path %></li>
+		<li class="<%= li_active 'Admin::LessonsController', controller %>"><%= link_to t(:admin_lessons), admin_lessons_path %></li>
+		<li class="<%= li_active 'Admin::CoursewaresController', controller %>"><%= link_to t(:admin_coursewares), admin_coursewares_path %></li>
+    </ul>
+	<ul class="nav navbar-nav navbar-right">
+		<li><%= link_to current_user.email, "#" %></li>
+		<li><%= link_to t(:logout), destroy_user_session_path, :method=>'delete' %></li>
+	</ul>	
+  </div><!--/.nav-collapse -->
+</div>
