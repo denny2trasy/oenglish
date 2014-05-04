@@ -17,7 +17,7 @@ class Teacher::SchedulesController < Teacher::BaseController
   def show
     schedule = Schedule.find_by_id(params[:id])
     wx = Webex::UrlApi.new
-    back_url = teacher_schedules_url
+    back_url = oenglish_url(teacher_schedules_path)
     redirect_to wx.login(wx.start_meeting(schedule.webex_no, back_url))
   end
   

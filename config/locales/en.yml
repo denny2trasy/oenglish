@@ -125,6 +125,7 @@ en:
   # admin/coursewares
   new_courseware: "New Courseware"
   download: "Download"
+  ppt: "PPT"
   
   # agent
   agent_students: "Students"

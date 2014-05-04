@@ -21,8 +21,9 @@ class Admin::SchedulesController < Admin::BaseController
   
   # this is for create meeting in webex
   def meeting
+    
     schedule = Schedule.find_by_id(params[:id])
-    back_url = webex_admin_schedule_url(schedule)
+    back_url = oenglish_url(webex_admin_schedule_path(schedule))
     w_params = schedule.params_for_webex_create_meeting(back_url)
     redirect_to Webex::UrlApi.new.schedule_meeting(w_params)
   end

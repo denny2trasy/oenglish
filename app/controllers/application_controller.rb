@@ -16,4 +16,14 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def oenglish_url(path)
+  	 url = ""
+  	 if Rails.env == "production"
+       url = "http://www.oenglish.net/#{path}"
+     else
+       url = "http://localhost:3000/#{path}"
+     end
+     url
+	end
+  
 end

@@ -123,6 +123,7 @@ zh-CN:
   # admin/coursewares
   new_courseware: "创建课件" 
   download: "下载"
+  ppt: "文档"
   
   # agent
   agent_students: "学生管理"

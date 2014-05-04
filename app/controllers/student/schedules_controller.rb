@@ -19,10 +19,10 @@ class Student::SchedulesController < Student::BaseController
     wx = Webex::UrlApi.new
     if current_user.enroll_meeting?(meeting)
       j_params = current_user.join_enrolled_meeting_params(meeting)
-      back_url = student_schedules_url
+      back_url = oenglish_url(student_schedules_path)
       redirect_to wx.join_enrolled_meeting(j_params,back_url)
     else
-      back_url = enroll_student_schedules_url(:SID => meeting.id,:WID => meeting.webex_no,:PWD => meeting.webex_pwd)
+      back_url = oenglish_url(enroll_student_schedules_path(:SID => meeting.id,:WID => meeting.webex_no,:PWD => meeting.webex_pwd))
       e_params = current_user.enroll_meeting_params(meeting)
       redirect_to wx.enroll_meeting(e_params,back_url)
     end
@@ -35,7 +35,7 @@ class Student::SchedulesController < Student::BaseController
       wx = Webex::UrlApi.new
       meeting = Schedule.find_by_id(params[:SID])
       j_params = current_user.join_enrolled_meeting_params(meeting)
-      back_url = student_schedules_url
+      back_url = oenglish_url(student_schedules_path)
       redirect_to wx.join_enrolled_meeting(j_params,back_url)
     rescue Exception => e
       flash[:notice] = "You enrolled webex fail! error message : #{e.message}"
