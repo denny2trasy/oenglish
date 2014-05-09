@@ -1,12 +1,23 @@
-here
-<% if current_user.blank? %>
-
-<%= link_to "Sign up", new_user_registration_path %>
-
-<%= link_to "Sign in", new_user_session_path %>
-
-<% else %>
-
-<%= link_to "Logout", destroy_user_session_path(:method => :delete) %>
-
-<% end %>
+<div class="ielts">
+  <h2>
+	<i>
+		<%= image_tag "front/picture14_03.gif", :width => "185px", :height => "165px"%>
+	</i>
+  </h2>
+  <div>
+	<%= form_for :user, url: session_path(User)  do |f| %>
+		<ul>
+			<li><%= f.email_field :email, autofocus: true, placeholder: "Email", :class => "input"%></li>
+			<li><%= f.password_field :password, autocomplete: "off", :class => "input" %></li>
+			<li><%= f.submit t(:sign_in), :class => "login"%></li>
+		</ul>	
+	<% end %>
+	<%= render 'layouts/messages' %>
+  </div>
+  <em>
+  	<%= image_tag "front/picture17_03.gif"%>
+  </em>
+</div>
+<div class="registration">
+	<%= render :partial => "signup"%>
+</div>

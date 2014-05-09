@@ -1,0 +1,70 @@
+<%= form_for(:user, url: registration_path(User)) do |f| %>
+	<div class="tmbj">
+		<ul>
+        	<li><b>提高英语水平？赶紧注册Oenglish学习中心！</b></li>
+			<li>
+	           <div class="username"><%= t(:email) %>:</div>
+	           <div class="inputbox">
+					<%= f.email_field :email, :class => "input_box" %>
+					<p>请认真填写信息，开始学习旅程！</p>
+				</div>
+	        </li>
+			<li>
+	           <div class="username"><%= t(:password) %>:</div>
+	           <div class="inputbox">
+					<%= f.password_field :password, :class => "input_box" %>
+				</div>
+	        </li>
+			<li>
+	           <div class="username"><%= t(:password_confirmation) %>:</div>
+	           <div class="inputbox">
+					<%= f.password_field :password_confirmation, :class => "input_box" %>
+				</div>
+	        </li>
+			<li>
+	           <div class="username"><%= t(:name) %>:</div>
+	           <div class="inputbox">
+					<%= f.text_field :name, :class => "input_box" %>
+				</div>
+	        </li>
+			<li>
+	           <div class="username"><%= t(:login) %>:</div>
+	           <div class="inputbox">
+					<%= f.text_field :login, :class => "input_box" %>
+				</div>
+	        </li>
+			<li>
+	           <div class="username"><%= t(:qq) %>:</div>
+	           <div class="inputbox">
+					<%= f.text_field :qq, :class => "input_box" %>
+				</div>
+	        </li>
+			<li>
+	           <div class="username"><%= t(:weixin) %>:</div>
+	           <div class="inputbox">
+					<%= f.text_field :weixin, :class => "input_box" %>
+				</div>
+	        </li>
+			<li>
+	           <div class="username"><%= t(:mobile) %>:</div>
+	           <div class="inputbox">
+					<%= f.text_field :mobile, :class => "input_box" %>
+				</div>
+	        </li>
+			<li>
+	           <div class="username"><%= t(:agent) %>:</div>
+	           <div class="inputbox">
+					<%= f.select :agent_id, agents_list, :class => "input_box" %>
+				</div>
+	        </li>
+			<%= f.hidden_field :u_type, :value => "student"%>
+			<li>
+	           <div class="username">&nbsp;</div>
+	           <div class="inputbox">
+					<%= f.submit t(:sign_up), :class => "signupnow" %>
+				</div>
+	        </li>			
+		</ul>
+	</div>
+<% end %>	
+

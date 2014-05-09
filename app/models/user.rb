@@ -43,8 +43,8 @@ class User < ActiveRecord::Base
   def enroll_meeting_params(schedule)
     params = {}
     params["AE"] = self.email
-    params["FN"] = self.name
-    params["LN"] = self.login
+    params["FN"] = self.name || "fname"
+    params["LN"] = self.login || "lname"
     params["MK"] = schedule.webex_no
     params
   end

@@ -147,3 +147,7 @@ en:
   # student/schedules
   student_all: "All"
   join_meeting: "Join Meeting"
+
+  # welcome index
+  invalid_password: "Invalid password"
+  invalid_email: "Invalid email"

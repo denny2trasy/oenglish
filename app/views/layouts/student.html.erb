@@ -16,16 +16,20 @@
   </head>
 
   <body>
-
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	
+	<div class="head">
 		<%= render "layouts/student_navigation"%>
-    </div>
-	<!-- container -->
-    <div class="container theme-showcase">
-		<%= render 'layouts/messages' %>
-      	<%= yield %>
-    </div> 
-
+	</div>
+	<div class="center">
+		<%= yield %>
+	</div>
+	<div class="footer">
+	 	<div>
+			<i>
+				<%= image_tag "front/picture09_03.gif", :width => "184px", :height => "66px"%>
+			</i>
+			<%= image_tag "front/picture11_03.gif", :width => "768px", :height => "31px"%>
+		</div>
+	</div>
   </body>
 </html>

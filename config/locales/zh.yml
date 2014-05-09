@@ -145,4 +145,8 @@ zh-CN:
   # student/schedules
   student_all: "全部课表"
   join_meeting: "进入课堂"
+  
+  # welcome index
+  invalid_password: "密码不正确"
+  invalid_email: "邮箱不正确"  
    
