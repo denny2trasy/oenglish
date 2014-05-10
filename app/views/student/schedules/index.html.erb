@@ -29,7 +29,7 @@
 				<td><%= schedule.end_at.try(:strftime, "%Y-%m-%d %H:%M")  %></td>
 				<td>
 					<% t = Time.now %>
-					<% if schedule.start_at > t %>
+					<% if schedule.is_active %>
 						<% l_class = "active" %> 
 						<% l_class = "disable" if schedule.start_at > t + 5.minutes %>										
 						<%= link_to t(:join_meeting), student_schedule_path(schedule), :class => l_class%>

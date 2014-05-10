@@ -25,4 +25,9 @@ class Schedule < ActiveRecord::Base
     params
   end
   
+  def is_active
+    t = Time.zone.now
+    return (self.start_at <= t and t <= self.end_at)
+  end
+  
 end
