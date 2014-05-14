@@ -3,10 +3,10 @@
   	<%= @lesson.name %>	
   </div>
   <div class="panel-body">
-	<!-- <audio src="<%#= @lesson.url %>" autoplay controls></audio> -->
+	<audio src="<%= @lesson.url %>" autoplay controls></audio>
 	
-	<% src = "/videos/musicplayer.swf" %>
-	<embed src='<%=src%>' quality='high' pluginspage='http://www.macromedia.com/go/getflashplayer' wmode='transparent' type='application/x-shockwave-flash' align='middle' allowScriptAccess='sameDomain' flashvars='song_url=<%= @lesson.url%>' width='170' height='17'/>
+	<!-- <%# src = "/videos/musicplayer.swf" %>
+	<embed src='<%=src%>' quality='high' pluginspage='http://www.macromedia.com/go/getflashplayer' wmode='transparent' type='application/x-shockwave-flash' align='middle' allowScriptAccess='sameDomain' flashvars='song_url=<%#= @lesson.url%>' width='170' height='17'/> -->
 	
 	
     <pre><%= @lesson.script %></pre>
