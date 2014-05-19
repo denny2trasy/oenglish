@@ -73,6 +73,7 @@ en:
   grade: "Grade"
   deadline: "Deadline"
   user_info: "User Info"
+  to_agent: "To Agent"
   
   # admin/agents
   new_agent: "New Agent"
@@ -111,6 +112,7 @@ en:
   repeat_wday: "Repeat wday" 
   status: "Status"
   show_schedule: "Show Schedule"
+  grade_info: "Grade Info"
   
   # admin/schedules
   new_schedule: "New Schedule"
@@ -121,6 +123,7 @@ en:
   webex_pwd: "Webex PWD"
   grade_id: "Grade Id"
   to_webex: "To Webex"
+  class_name: "Class Name"
   
   # admin/coursewares
   new_courseware: "New Courseware"
@@ -147,6 +150,7 @@ en:
   # student/schedules
   student_all: "All"
   join_meeting: "Join Meeting"
+  no_schedule: "No Schedule"
 
   # welcome index
   invalid_password: "Invalid password"

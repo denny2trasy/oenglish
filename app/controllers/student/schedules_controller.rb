@@ -1,16 +1,23 @@
 class Student::SchedulesController < Student::BaseController
   
   def index
-    h = {:grade_id_in => current_user.grades.opened.pluck(:id)}
-    unless params[:num].blank?
-      @num = params[:num]
-      d = Time.now.to_date
-      date = d + @num.to_i.days
-      h[:start_at_gteq] = date.beginning_of_day
-      h[:start_at_lteq] = date.end_of_day
+    grades_id = current_user.grades.opened.pluck(:id)
+    if grades_id.blank?
+      @schedules = []
+    else
+      h = {:grade_id_in => grades_id}
+      unless params[:num].blank?
+        @num = params[:num]
+        d = Time.now.to_date
+        date = d + @num.to_i.days
+        h[:start_at_gteq] = date.beginning_of_day
+        h[:start_at_lteq] = date.end_of_day
+      else
+        h[:start_at_lt] = Time.now.beginning_of_day  
+      end
+      @q = Schedule.search((params[:q] || {}).merge(h))
+      @schedules = @q.result(distinct: true).page(params[:page])
     end
-    @q = Schedule.search((params[:q] || {}).merge(h))
-    @schedules = @q.result(distinct: true).page(params[:page])
   end
   
   # enroll meeting and join meeting

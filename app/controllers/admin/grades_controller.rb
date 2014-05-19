@@ -39,6 +39,10 @@ class Admin::GradesController < Admin::BaseController
     redirect_to admin_grades_path
   end
   
+  def show
+    @grade = Grade.find_by_id(params[:id])
+  end
+  
 
   private
   def grade_params

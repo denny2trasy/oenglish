@@ -1,10 +1,10 @@
 <%= form_for @agent, url: url,  html: {class: "form-horizontal"} do |f| %>
-	<div class="form-group">
-		<%= f.label t(:user_id), :for => "agent_user_id", :class => "col-sm-2 control-label" %>
+	<!-- <div class="form-group">
+		<%#= f.label t(:user_id), :for => "agent_user_id", :class => "col-sm-2 control-label" %>
 		<div class="col-sm-10">
-			<%= f.select :user_id, user_agents_list,{}, {:class => "form-control"} %>
+			<%#= f.select :user_id, user_agents_list,{}, {:class => "form-control"} %>
 		</div>
-	</div>
+	</div> -->
 	<% %w{name contract_no commission_x commission_ya commission_yb commission_z}.each do |item| %>
 		<div class="form-group">
 			<%= f.label t(item), :for => "agent_#{item}", :class => "col-sm-2 control-label"%>

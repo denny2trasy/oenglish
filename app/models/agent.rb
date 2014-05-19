@@ -3,7 +3,7 @@ class Agent < ActiveRecord::Base
   has_many  :students,  :class_name => User
   
   def top_agent
-    Agent.find_by_top_id(self.top_id)
+    Agent.find_by_id(self.top_id)
   end
   
 end

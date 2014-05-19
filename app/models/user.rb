@@ -11,7 +11,15 @@ class User < ActiveRecord::Base
   scope :agents, -> {where(u_type: :agent)}
   scope :students, -> {where(u_type: :student)}
   scope :teachers, -> {where(u_type: :teacher)}
-  scope :admins, -> {where(u_type: :admin)}       
+  scope :admins, -> {where(u_type: :admin)}   
+  
+  after_create :create_agent
+  
+  def create_agent
+    if self.u_type == "agent"
+      Agent.create(:user_id => self.id, :name => self.name)
+    end
+  end    
   
   def is_admin?
     return self.u_type == "admin"
@@ -61,6 +69,10 @@ class User < ActiveRecord::Base
   def enroll_meeting?(schedule)
     ew = EnrollWebex.where(:user_id => self.id, :schedule_id => schedule.id)
     return (ew.blank? ? false : true) 
+  end
+  
+  def to_agent
+    Agent.find_by_id(self.agent_id)
   end
          
 end

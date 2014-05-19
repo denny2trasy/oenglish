@@ -71,6 +71,7 @@ zh-CN:
   grade: "班级"
   deadline: "截止日期"
   user_info: "用户详情"
+  to_agent: "所属代理商"  
   
   # admin/agents
   new_agent: "新建代理商"
@@ -84,7 +85,7 @@ zh-CN:
   logo: "是否显示Logo"
   a_type: "类型"
   students: "学生数"
-  agent_info: "代理商详情"  
+  agent_info: "代理商详情"
 
   # admin/courses
   new_course: "创建新课程包"
@@ -108,7 +109,8 @@ zh-CN:
   duration: "课时长度（分钟）" 
   repeat_wday: "周几上课" 
   status: "状态"
-  show_schedule: "查看课表"    
+  show_schedule: "查看课表" 
+  grade_info: "班级信息"   
   
   # admin/schedules
   new_schedule: "创建新课表"
@@ -119,6 +121,7 @@ zh-CN:
   webex_pwd: "Webex密码"
   grade_id: "班级"
   to_webex: "创建Webex会议"
+  class_name: "所属班级"
   
   # admin/coursewares
   new_courseware: "创建课件" 
@@ -143,8 +146,9 @@ zh-CN:
   study: "学习"
   
   # student/schedules
-  student_all: "全部课表"
+  student_all: "历史课表"
   join_meeting: "进入课堂"
+  no_schedule: "没有课程"
   
   # welcome index
   invalid_password: "密码不正确"

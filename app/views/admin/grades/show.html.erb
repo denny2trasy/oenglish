@@ -1,0 +1,11 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><%= t(:grade_info) %></div>
+  <div class="panel-body">
+    <p><%= t(:name) %>: <%= @grade.name %></p>
+  </div>
+
+  <!-- Table -->
+  <%= render :partial => "students"%>
+</div>
+

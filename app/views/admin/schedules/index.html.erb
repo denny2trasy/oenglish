@@ -6,6 +6,7 @@
   <table class="table table-striped">
 		<tr>
 			<td><%= t(:title) %></td>
+			<td><%= t(:class_name)%></td>	
 			<td><%= t(:teacher_id)%></td>			
 			<td><%= t(:start_at) %></td>
 			<td><%= t(:end_at)%></td>
@@ -16,6 +17,7 @@
 		<% @schedules.each do |schedule| %>
 			<tr>				
 				<td><%= schedule.title %></td>
+				<td><%= schedule.grade.try(:name)%></td>
 				<td><%= schedule.teacher.try(:name) %></td>
 				<td><%= schedule.start_at.try(:strftime, "%Y-%m-%d %H:%M") %></td>
 				<td><%= schedule.end_at.try(:strftime, "%Y-%m-%d %H:%M")  %></td>
