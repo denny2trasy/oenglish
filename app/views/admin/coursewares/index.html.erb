@@ -19,7 +19,7 @@
 				<td><%= link_to t(:download), courseware.ppt.url %></td>
 				<td>
 					<%= link_to t(:edit), edit_admin_courseware_path(courseware), :class => "btn btn-default" %>
-					<%= link_to t(:delete), admin_courseware_path(courseware),:method => :delete, :class => "btn btn-danger", :confirm => "Are you sure?"%>
+					<%= link_to t(:delete), admin_courseware_path(courseware),:method => :delete, :class => "btn btn-danger", confirm: "Are you sure?"%>
 					
 				</td>
 			</tr>	
