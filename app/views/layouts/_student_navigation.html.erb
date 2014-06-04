@@ -3,7 +3,7 @@
 	<%= link_to image_tag("front/picture01_03.gif",:width => "164px", :height => "45px"), root_path %>
     <ul>
 		<li class="<%= li_active 'Student::CoursesController', controller %>"><%= link_to t(:student_courses), student_courses_path %></li>
-		<li class="<%= li_active 'Student::SchedulesController', controller %>"><%= link_to t(:student_schedules), student_schedules_path %></li>
+		<li class="<%= li_active 'Student::SchedulesController', controller %>"><%= link_to t(:student_schedules), student_schedules_path(:num => 0) %></li>
 		<li class="<%= li_active 'Student::CoursewaresController', controller %>"><%= link_to t(:student_coursewares), student_coursewares_path %></li>		
 		<li style="float:right"><%= link_to t(:logout), destroy_user_session_path, :method=>'delete' %></li>
 		<li style="float:right"><%= link_to current_user.name, "#"%></li>		

@@ -7,7 +7,7 @@ class Student::SchedulesController < Student::BaseController
     else
       h = {:grade_id_in => grades_id}
       unless params[:num].blank?
-        @num = params[:num]
+        @num = params[:num] || "0"
         d = Time.now.to_date
         date = d + @num.to_i.days
         h[:start_at_gteq] = date.beginning_of_day
